@@ -16,6 +16,6 @@ jobs:
           fetch-depth: 0
       - run: |
             git tag ${{ github.event.inputs.tag }}
-            echo  Owner ${{ github.event.workflow_dispatch}}
+            echo  Owner ${{ github.event }}
       # other steps bellow as usual
 
