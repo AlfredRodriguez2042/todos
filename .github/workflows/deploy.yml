@@ -14,8 +14,10 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          ref: ${{ github.event.inputs.tag }}
       - run: |
             git tag ${{ github.event.inputs.tag }}
             echo  Owner ${{ github.event.actor.id }}
+      - run: npm i      
       # other steps bellow as usual
 
