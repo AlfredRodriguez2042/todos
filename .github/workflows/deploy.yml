@@ -1,12 +1,10 @@
 name: Manual trigger
 
 on:
-  workflow_dispatch:
-  label:
+  push:
     tags:
       - 'v*.*.*'
-  release:
-    types: [published, created, edited]
+  workflow_dispatch:
     inputs:
       name:
         description: "Who to greet"
