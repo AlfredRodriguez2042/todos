@@ -2,12 +2,16 @@ name: Manual trigger
 
 on:
   release:
-    types: [created]
+    types: [published, created, edited]
   workflow_dispatch:
     inputs:
       name:
         description: "Who to greet"
         default: "World"
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: boolean   
 jobs:
   deploy:
     runs-on: ubuntu-latest
