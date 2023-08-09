@@ -1,9 +1,9 @@
 name: Manual trigger
 
 on:
+  workflow_dispatch:
   release:
     types: [published, created, edited]
-  workflow_dispatch:
     inputs:
       name:
         description: "Who to greet"
