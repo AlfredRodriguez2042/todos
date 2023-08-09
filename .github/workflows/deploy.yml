@@ -1,22 +1,19 @@
 name: Manual trigger
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
   workflow_dispatch:
     inputs:
-      name:
-        description: "Who to greet"
-        default: "World"
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean   
+      tag:
+        description: 'New tag name'
+        required: true
+
 jobs:
-  deploy:
+  goreleaser:
     runs-on: ubuntu-latest
     steps:
-      - name: saludo
-        run: echo "hello"
-        
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - run: git tag ${{ github.event.inputs.tag }}
+      # other steps bellow as usual
+
